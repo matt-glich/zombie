@@ -38,22 +38,24 @@
   "scripts": {
     "build": "gulp build",
     "test": "gulp lint && mocha",
-    "prepare": "npm test && gulp build",
-    "postpublish": "git push"
+    "prepare": "npm run snyk-protect && npm test && gulp build",
+    "postpublish": "git push",
+    "snyk-protect": "snyk-protect"
   },
   "dependencies": {
     "babel-runtime": "6.26.0",
     "bluebird": "^3.5.1",
     "debug": "^4.1.0",
-    "eventsource": "^1.0.5",
+    "eventsource": "^1.1.1",
     "iconv-lite": "^0.4.21",
     "jsdom": "11.12.0",
-    "lodash": "^4.17.10",
+    "lodash": "^4.17.21",
     "mime": "^2.3.1",
     "ms": "^2.1.1",
     "request": "^2.85.0",
     "tough-cookie": "^2.3.4",
-    "ws": "^6.1.2"
+    "ws": "^6.2.2",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -85,5 +87,6 @@
   "bugs": {
     "url": "http://github.com/assaf/zombie/issues"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "snyk": true
 }
